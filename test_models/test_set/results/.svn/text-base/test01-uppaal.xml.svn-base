@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC "-//Uppaal Team//DTD Flat System 1.1//EN" "http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd">
+<nta>
+  <declaration>chan init_Main;
+chan enter_Main_via_UNNAMED1_in_top;
+</declaration>
+    <template>
+    <name x="5" y="5">Global_Kickoff</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-28">
+      <name x="-48" y="-13">end</name>
+      <label kind="invariant" x="-48" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-48" y="-214">
+      <name x="-48" y="-199">Main_vertex</name>
+      <label kind="invariant" x="-48" y="-184">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id1" />
+    
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-102" y="-91">init_Main!</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">Main_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-81" y="-28">
+      <name x="-81" y="-13">s3_active_in_Main</name>
+      <label kind="invariant" x="-81" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-81" y="-580">
+      <name x="-81" y="-565">Main_idle</name>
+      <label kind="invariant" x="-81" y="-550">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-81" y="-211">
+      <name x="-81" y="-196">s2_active_in_Main</name>
+      <label kind="invariant" x="-81" y="-181">true</label>
+      
+      
+    </location>
+
+    <location id="id3" x="-81" y="-394">
+      <name x="-81" y="-379">s1_active_in_Main</name>
+      <label kind="invariant" x="-81" y="-364">true</label>
+      
+      
+    </location>
+    
+    <init ref="id1" />
+    
+    <transition>
+      <source ref="id1" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-66" y="-457">init_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id2" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-327" y="-457">enter_Main_via_UNNAMED1_in_top?</label>
+      
+      
+    </transition>
+  </template>
+
+  <system>Global_Kickoff_proc = Global_Kickoff();
+Main_process_proc = Main_process();
+system Global_Kickoff_proc, Main_process_proc;
+</system>
+</nta>

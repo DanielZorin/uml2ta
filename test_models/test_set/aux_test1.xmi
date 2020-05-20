@@ -1,0 +1,95 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Mon May 30 17:04:26 MSD 2011'>
+  <XMI.header>    <XMI.documentation>
+      <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
+      <XMI.exporterVersion>0.32.2(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
+    </XMI.documentation>
+    <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
+  <XMI.content>
+    <UML:Model xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000001CC0'
+      name = 'TestModel' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+      isAbstract = 'false'>
+      <UML:Namespace.ownedElement>
+        <UML:StateMachine xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000001CC1'
+          name = 'HTA' isSpecification = 'false'>
+          <UML:StateMachine.top>
+            <UML:CompositeState xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000001CC2'
+              name = 'top' isSpecification = 'false' isConcurrent = 'false'>
+              <UML:CompositeState.subvertex>
+                <UML:CompositeState xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002906'
+                  name = 'Main' isSpecification = 'false' isConcurrent = 'false'>
+                  <UML:CompositeState.subvertex>
+                    <UML:Pseudostate xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000290D'
+                      isSpecification = 'false' kind = 'initial'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002923'/>
+                      </UML:StateVertex.outgoing>
+                    </UML:Pseudostate>
+                    <UML:CompositeState xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000291D'
+                      name = 'xor1' isSpecification = 'false' isConcurrent = 'false'>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002923'/>
+                      </UML:StateVertex.incoming>
+                      <UML:CompositeState.subvertex>
+                        <UML:Pseudostate xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000291E'
+                          isSpecification = 'false' kind = 'initial'>
+                          <UML:StateVertex.outgoing>
+                            <UML:Transition xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002921'/>
+                          </UML:StateVertex.outgoing>
+                        </UML:Pseudostate>
+                        <UML:FinalState xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000291F'
+                          isSpecification = 'false'>
+                          <UML:StateVertex.incoming>
+                            <UML:Transition xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002922'/>
+                          </UML:StateVertex.incoming>
+                        </UML:FinalState>
+                        <UML:SimpleState xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002920'
+                          name = 'xor1_s1' isSpecification = 'false'>
+                          <UML:StateVertex.outgoing>
+                            <UML:Transition xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002922'/>
+                          </UML:StateVertex.outgoing>
+                          <UML:StateVertex.incoming>
+                            <UML:Transition xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002921'/>
+                          </UML:StateVertex.incoming>
+                        </UML:SimpleState>
+                      </UML:CompositeState.subvertex>
+                    </UML:CompositeState>
+                  </UML:CompositeState.subvertex>
+                </UML:CompositeState>
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+          <UML:StateMachine.transitions>
+            <UML:Transition xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002921'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000291E'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002920'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002922'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002920'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:FinalState xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000291F'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '127-0-0-2-3702bcfe:130337caf2a:-8000:0000000000002923'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000290D'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:CompositeState xmi.idref = '127-0-0-2-3702bcfe:130337caf2a:-8000:000000000000291D'/>
+              </UML:Transition.target>
+            </UML:Transition>
+          </UML:StateMachine.transitions>
+        </UML:StateMachine>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </XMI.content>
+</XMI>

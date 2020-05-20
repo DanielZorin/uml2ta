@@ -1,0 +1,283 @@
+<scxml version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0.0 y=0.0 w=3044.5 h=1168.0  --><!-- bool hard_rt=false;
+
+bool task1_time_ex=false;
+bool task2_time_ex=false;
+bool task3_time_ex=false;
+bool task4_time_ex=false;
+
+bool task1_ready=false;
+bool task2_ready=false;
+bool task3_ready=false;
+bool task4_ready=false;
+
+int [0..50] t1_working_start=0;
+int [0..50] t2_working_start=0;
+int [0..50] t3_working_start=0;
+int [0..50] t4_working_start=0;
+
+int [0..50] t1_sending_start=0;
+int [0..50] t2_sending_start=0;
+int [0..50] t3_sending_start=0;
+int [0..50] t4_sending_start=0;
+
+int [0..50] c1=0;
+int [0..50] c2=0;
+int [0..4] P1_task=0; 
+int [0..4] P2_task=0;
+int [1..5] a1=1;
+int [1..5] a2=1;
+bool port1=true;
+bool port2=true;
+bool port3=true;
+bool port4=true; 
+
+int [0..20] task1_time=5;
+int [0..20] task2_time=6;
+int [0..20] task3_time=8;
+int [0..20] task4_time=10;
+
+int [0..50] task1_dirTime=15;
+int [0..50] task2_dirTime=25;
+int [0..50] task3_dirTime=35;
+int [0..50] task4_dirTime=50;
+
+int [0..10] task1_trans=1;
+int [0..10] task2_trans=3;
+int [0..10] task3_trans=4;
+int [0..10] task4_trans=2;
+
+int [1..10] n1=1;
+int [1..10] n2=1;
+int [1..10] n=1;
+
+bool p1_end=false;
+bool p2_end=false; 
+int [0..50] t3_sending_end=0; -->
+ <state id="top"><!--   node-size-and-position x=20.0 y=43.0 w=3004.5 h=1105.0  -->
+  <parallel id="System" initial="System_entry"><!--   node-size-and-position x=20.0 y=43.0 w=2964.5 h=1042.0  -->
+   <state id="Processor_1" initial="Processor_1_entry"><!--   node-size-and-position x=1548.0 y=113.0 w=1396.5 h=839.0  -->
+    <state id="Processor_1_entry"><!--   node-size-and-position x=643.25 y=43.0 w=110.0 h=20.0  -->
+     <transition target="Processor_1_top_entry"></transition>
+    </state>
+    <parallel id="Processor_1_top" initial="Processor_1_top_entry"><!--   node-size-and-position x=20.0 y=113.0 w=1356.5 h=636.0  -->
+     <state id="Processor_1_top_entry"><!--   node-size-and-position x=647.5 y=43.0 w=140.0 h=20.0  -->
+      <transition target="P1_timer_entry"></transition>
+      <transition target="T1_entry"></transition>
+      <transition target="T4_entry"></transition>
+      <transition target="P1_sch_entry"></transition>
+     </state>
+     <state id="P1_timer" initial="P1_timer_entry"><!--   node-size-and-position x=790.0 y=250.0 w=210.0 h=230.0  -->
+      <state id="P1_timer_entry"><!--   node-size-and-position x=25.0 y=43.0 w=90.0 h=20.0  -->
+       <transition target="P1_timer_after_entry"></transition>
+      </state>
+      <state id="P1_timer_working"><!--   node-size-and-position x=20.0 y=113.0 w=100.0 h=20.0  -->
+       <transition cond="!p1_end || !p2_end" event="!!T1;">after(self.c&gt;a1)</transition>
+       <transition cond="p1_end&amp;&amp;p2_end" target="P1_timer_exit"></transition>
+      </state>
+      <state id="P1_timer_exit"><!--   node-size-and-position x=25.0 y=183.0 w=90.0 h=20.0  -->
+       <transition target="Processor1_exit"><!--   edge-path [Processor1_exit]  pointx=0.0 pointy=0.0 offsetx=0.0 offsety=68.0  --></transition>
+      </state>
+      <state id="P1_timer_after_entry"><!--   node-size-and-position x=22.0 y=78.0 w=120.0 h=20.0  -->
+       <transition event="c1=0;" target="P1_timer_working"></transition>
+      </state>
+     </state>
+     <state id="Task_1" initial="T1_entry"><!--   node-size-and-position x=20.0 y=113.0 w=285.0 h=503.0  -->
+      <state id="T1_entry"><!--   node-size-and-position x=115.0 y=43.0 w=50.0 h=20.0  -->
+       <transition target="T1_after_entry"></transition>
+      </state>
+      <state id="T1_waiting"><!--   node-size-and-position x=105.0 y=113.0 w=70.0 h=20.0  -->
+       <transition cond="(c1+task1_time&lt;=task1_dirTime) || !hard_rt" event="t1_working_start=c1;task1_time_ex=(c1+task1_time)&gt;task1_dirTime;" target="T1_working"></transition>
+       <transition cond="(c1+task1_time&gt;task1_dirTime) &amp;&amp; hard_rt" event="task1_time_ex=true;" target="T1_time_exceeded"></transition>
+      </state>
+      <state id="T1_working"><!--   node-size-and-position x=105.0 y=183.0 w=70.0 h=20.0  -->
+       <transition cond="c1&gt;=task1_time+t1_working_start" target="T1_s_waiting"></transition>
+       <transition cond="c1&lt;task1_time+t1_working_start" event="c1=c1+a1;">T1</transition>
+      </state>
+      <state id="T1_end"><!--   node-size-and-position x=206.0 y=393.0 w=40.0 h=20.0  -->
+       <transition cond="(P1_task==1) &amp;&amp; !p1_end &amp;&amp; !task1_ready" target="T1_waiting"><!--   edge-path [T1_waiting]  x=263.0 y=333.0 x=234.0 y=263.0 x=205.0 y=193.0  --></transition>
+       <transition cond="p1_end" target="T1_exit"></transition>
+      </state>
+      <final id="T1_time_exceeded"><!--   node-size-and-position x=20.0 y=323.0 w=100.0 h=20.0  --></final>
+      <state id="T1_s_waiting"><!--   node-size-and-position x=100.0 y=253.0 w=80.0 h=20.0  -->
+       <transition event="t1_sending_start=c1;" target="T1_s_sending"></transition>
+      </state>
+      <state id="T1_s_sending"><!--   node-size-and-position x=153.0 y=323.0 w=80.0 h=20.0  -->
+       <transition event="task1_ready=true;" target="T1_end"></transition>
+      </state>
+      <state id="T1_exit"><!--   node-size-and-position x=201.0 y=463.0 w=50.0 h=20.0  -->
+       <transition target="Processor1_exit"></transition>
+      </state>
+      <state id="T1_after_entry"><!--   node-size-and-position x=82.0 y=75.0 w=100.0 h=20.0  -->
+       <transition cond="P1_task==1" target="T1_waiting"></transition>
+      </state>
+     </state>
+     <state id="Task_4" initial="T4_entry"><!--   node-size-and-position x=1012.5 y=183.0 w=324.0 h=363.0  -->
+      <state id="T4_entry"><!--   node-size-and-position x=162.0 y=43.0 w=50.0 h=20.0  -->
+       <transition target="T4_after_entry"></transition>
+      </state>
+      <state id="T4_waiting"><!--   node-size-and-position x=152.0 y=113.0 w=70.0 h=20.0  -->
+       <transition cond="task1_ready &amp;&amp; task2_ready &amp;&amp; task3_ready" event="c1=t3_sending_end&gt;c1?t3_sending_end:c1; t4_working_start=c1;" target="T4_working"></transition>
+      </state>
+      <state id="T4_working"><!--   node-size-and-position x=153.0 y=183.0 w=70.0 h=20.0  -->
+       <transition cond="c1&gt;=task4_time+t4_working_start" event="task4_ready=true;" target="T4_end"></transition>
+       <transition cond="c1&lt;task4_time+t4_working_start" event="c1=c1+a1;task4_time_ex=(task4_dirTime&lt;c1);">T1</transition>
+       <transition cond="(task4_time_ex)&amp;&amp;(hard_rt)" target="T4_time_exceeded"></transition>
+      </state>
+      <state id="T4_end"><!--   node-size-and-position x=198.0 y=253.0 w=40.0 h=20.0  -->
+       <transition cond="(P1_task==4) &amp;&amp; !p1_end &amp;&amp; !task4_ready" target="T4_waiting"><!--   edge-path [T4_waiting]  x=253.0 y=193.0  --></transition>
+       <transition cond="p1_end" target="T4_exit"></transition>
+      </state>
+      <final id="T4_time_exceeded"><!--   node-size-and-position x=20.0 y=183.0 w=100.0 h=20.0  --></final>
+      <state id="T4_exit"><!--   node-size-and-position x=193.0 y=323.0 w=50.0 h=20.0  -->
+       <transition target="Processor1_exit"><!--   edge-path [Processor1_exit]  pointx=0.0 pointy=0.0 offsetx=0.0 offsety=34.0  --></transition>
+      </state>
+      <state id="T4_after_entry"><!--   node-size-and-position x=140.0 y=80.0 w=100.0 h=20.0  -->
+       <transition cond="P1_task==4" target="T4_waiting"></transition>
+      </state>
+     </state>
+     <state id="P1_scheduler" initial="P1_sch_entry"><!--   node-size-and-position x=380.0 y=220.0 w=380.0 h=290.0  -->
+      <state id="P1_sch_entry"><!--   node-size-and-position x=183.0 y=43.0 w=80.0 h=20.0  -->
+       <transition target="P1_sch_after_entry"></transition>
+      </state>
+      <state id="P1_sch_task1"><!--   node-size-and-position x=183.0 y=113.0 w=80.0 h=20.0  -->
+       <transition cond="task1_ready==true" event="P1_task=4;task4_ready=false;task4_time_ex=false;" target="P1_sch_task4"><!--   edge-path [P1_sch_task4]  x=229.0 y=158.0 pointx=0.0 pointy=5.0 offsetx=-2.0 offsety=-9.0  --></transition>
+      </state>
+      <state id="P1_sch_task4"><!--   node-size-and-position x=183.0 y=183.0 w=80.0 h=20.0  -->
+       <transition cond="(task4_ready)&amp;&amp;(n1&lt;n)" event="P1_task=1;task1_ready=false;c1=0;task1_time_ex=false;n1=n1+1;" target="P1_sch_task1"><!--   edge-path [P1_sch_task1]  x=206.5 y=160.0 pointx=0.0 pointy=17.0 offsetx=0.0 offsety=17.0  --></transition>
+       <transition cond="(n1&gt;=n)&amp;&amp;(task4_ready)" event="p1_end=true" target="P1_sch_exit"></transition>
+      </state>
+      <state id="P1_sch_exit"><!--   node-size-and-position x=188.0 y=253.0 w=70.0 h=20.0  -->
+       <transition target="Processor1_exit"><!--   edge-path [Processor1_exit]  pointx=0.0 pointy=0.0 offsetx=0.0 offsety=50.0  --></transition>
+      </state>
+      <state id="P1_sch_after_entry"><!--   node-size-and-position x=162.0 y=78.0 w=120.0 h=20.0  -->
+       <transition event="P1_task=1;task1_ready=false;" target="P1_sch_task1"></transition>
+      </state>
+     </state>
+    </parallel>
+    <state id="Processor1_exit"><!--   node-size-and-position x=648.25 y=799.0 w=100.0 h=20.0  -->
+     <transition target="System_exit"></transition>
+    </state>
+   </state>
+   <state id="Processor_2" initial="Processor_2_entry"><!--   node-size-and-position x=20.0 y=113.0 w=1498.5 h=839.0  -->
+    <state id="Processor_2_entry"><!--   node-size-and-position x=694.25 y=43.0 w=110.0 h=20.0  -->
+     <transition target="Processor_2_top_entry"></transition>
+    </state>
+    <parallel id="Processor_2_top" initial="Processor_2_top_entry"><!--   node-size-and-position x=20.0 y=113.0 w=1458.5 h=636.0  -->
+     <state id="Processor_2_top_entry"><!--   node-size-and-position x=687.5 y=43.0 w=140.0 h=20.0  -->
+      <transition target="P2_timer_entry"></transition>
+      <transition target="T2_entry"><!--   edge-path [T2_entry]  pointx=0.0 pointy=0.0 offsetx=0.0 offsety=-2.0  --></transition>
+      <transition target="T3_entry"></transition>
+      <transition target="P2_sch_entry"></transition>
+     </state>
+     <state id="P2_timer" initial="P2_timer_entry"><!--   node-size-and-position x=820.0 y=238.0 w=200.0 h=220.0  -->
+      <state id="P2_timer_entry"><!--   node-size-and-position x=20.0 y=43.0 w=90.0 h=20.0  -->
+       <transition target="P2_timer_after_entry"></transition>
+      </state>
+      <state id="Working"><!--   node-size-and-position x=40.0 y=113.0 w=50.0 h=20.0  -->
+       <transition cond="!p1_end || !p2_end" event="!!T2;">after(self.c&gt;a2)</transition>
+       <transition cond="p2_end&amp;&amp;p1_end" target="P2_timer_exit"></transition>
+      </state>
+      <state id="P2_timer_exit"><!--   node-size-and-position x=20.0 y=183.0 w=90.0 h=20.0  -->
+       <transition target="Processor2_exit"><!--   edge-path [Processor2_exit]  pointx=0.0 pointy=0.0 offsetx=0.0 offsety=68.0  --></transition>
+      </state>
+      <state id="P2_timer_after_entry"><!--   node-size-and-position x=50.0 y=80.0 w=60.0 h=20.0  -->
+       <transition event="c2=0;" target="Working"></transition>
+      </state>
+     </state>
+     <state id="Task_2" initial="T2_entry"><!--   node-size-and-position x=20.0 y=113.0 w=387.0 h=503.0  -->
+      <state id="T2_entry"><!--   node-size-and-position x=225.0 y=43.0 w=50.0 h=20.0  -->
+       <transition target="T2_after_entry"></transition>
+      </state>
+      <state id="T2_waiting"><!--   node-size-and-position x=210.0 y=110.0 w=90.0 h=20.0  -->
+       <transition cond="(c2+task2_time&lt;=task2_dirTime) || (!hard_rt)" event="t2_working_start=c2;task2_time_ex=(c2+task2_time)&gt;task2_dirTime;" target="T2_working"><!--   edge-path [T2_working]  pointx=1.0 pointy=-59.0 offsetx=-3.0 offsety=3.0  --></transition>
+       <transition cond="(c2+task2_time&gt;task2_dirTime) &amp;&amp; (hard_rt)" event="task2_time_ex=true;" target="T2_time_exceeded"></transition>
+      </state>
+      <state id="T2_working"><!--   node-size-and-position x=151.0 y=183.0 w=70.0 h=20.0  -->
+       <transition cond="c2&gt;=task2_time+t2_working_start" target="T2_s_waiting"></transition>
+       <transition cond="c2&lt;task2_time+t2_working_start" event="c2=c2+a2;">T2</transition>
+      </state>
+      <state id="T2_end"><!--   node-size-and-position x=215.0 y=393.0 w=40.0 h=20.0  -->
+       <transition cond="(P2_task==2) &amp;&amp; !p2_end &amp;&amp; !task2_ready" target="T2_waiting"><!--   edge-path [T2_waiting]  x=339.0 y=333.0 x=310.0 y=263.0 x=281.0 y=193.0  --></transition>
+       <transition cond="p2_end" target="T2_exit"></transition>
+      </state>
+      <final id="T2_time_exceeded"><!--   node-size-and-position x=206.0 y=323.0 w=100.0 h=20.0  --></final>
+      <state id="T2_s_waiting"><!--   node-size-and-position x=146.0 y=253.0 w=80.0 h=20.0  -->
+       <transition cond="(task2_time_ex)&amp;&amp;(hard_rt)" target="T2_time_exceeded"></transition>
+       <transition cond="!task2_time_ex&amp;&amp;!port1||!task2_time_ex&amp;&amp;!port2||!hard_rt&amp;&amp;!port2||!hard_rt&amp;&amp;!port1" event="c2=c2+a2;task2_time_ex=(c2+task2_trans)&gt;task2_dirTime;">T2</transition>
+       <transition cond="port2&amp;&amp;port1" event="port2=false;port1=false;t2_sending_start=c2;" target="T2_s_sending"></transition>
+      </state>
+      <state id="T2_s_sending"><!--   node-size-and-position x=94.0 y=323.0 w=80.0 h=20.0  -->
+       <transition cond="c2&gt;=task2_trans+t2_sending_start" event="port2=true;port1=true;task2_ready=true;" target="T2_end"></transition>
+       <transition cond="c2&lt;task2_trans+t2_sending_start" event="c2=c2+a2;">T2</transition>
+      </state>
+      <state id="T2_exit"><!--   node-size-and-position x=210.0 y=463.0 w=50.0 h=20.0  -->
+       <transition target="Processor2_exit"></transition>
+      </state>
+      <state id="T2_after_entry"><!--   node-size-and-position x=200.0 y=75.0 w=100.0 h=20.0  -->
+       <transition cond="P2_task==2" target="T2_waiting"></transition>
+      </state>
+     </state>
+     <state id="Task_3" initial="T3_entry"><!--   node-size-and-position x=440.0 y=110.0 w=350.0 h=480.0  -->
+      <state id="T3_waiting"><!--   node-size-and-position x=105.0 y=113.0 w=70.0 h=20.0  -->
+       <transition cond="(c2+task3_time&lt;=task3_dirTime) || (!hard_rt)" event="t3_working_start=c2;task3_time_ex=(c2+task3_time)&gt;task3_dirTime;" target="T3_working"><!--   edge-path [T3_working]  pointx=0.0 pointy=42.0 offsetx=0.0 offsety=7.0  --></transition>
+       <transition cond="(c2+task3_time&gt;task3_dirTime) &amp;&amp; (hard_rt)" event="task3_time_ex=true;" target="T3_time_exceeded"></transition>
+      </state>
+      <state id="T3_working"><!--   node-size-and-position x=105.0 y=183.0 w=70.0 h=20.0  -->
+       <transition cond="c2&gt;=task3_time+t3_working_start" target="T3_s_waiting"></transition>
+       <transition cond="c2&lt;task3_time+t3_working_start" event="c2=c2+a2;">T2<!--   edge-path [T3_working]  pointx=0.0 pointy=38.0 offsetx=0.0 offsety=2.0  --></transition>
+      </state>
+      <state id="T3_end"><!--   node-size-and-position x=206.0 y=393.0 w=40.0 h=20.0  -->
+       <transition cond="(P2_task==3) &amp;&amp; !p2_end &amp;&amp; !task3_ready" target="T3_waiting"><!--   edge-path [T3_waiting]  x=263.0 y=333.0 x=234.0 y=263.0 x=205.0 y=193.0  --></transition>
+       <transition cond="p2_end" target="T3_exit"></transition>
+      </state>
+      <final id="T3_time_exceeded"><!--   node-size-and-position x=20.0 y=323.0 w=100.0 h=20.0  --></final>
+      <state id="T3_s_waiting"><!--   node-size-and-position x=100.0 y=253.0 w=80.0 h=20.0  -->
+       <transition cond="!task3_time_ex&amp;&amp;!port1||!task3_time_ex&amp;&amp;!port2||!hard_rt&amp;&amp;!port2||!hard_rt&amp;&amp;!port1" event="c2=c2+a2;task3_time_ex=(c2+task3_trans)&gt;task3_dirTime;">T2<!--   edge-path [T3_s_waiting]  pointx=-1.0 pointy=11.0 offsetx=4.0 offsety=0.0  --></transition>
+       <transition cond="(c2+task3_trans&gt;task3_dirTime)&amp;&amp;(hard_rt)" target="T3_time_exceeded"></transition>
+       <transition cond="port2&amp;&amp;port1" event="port2=false;port1=false;t3_sending_start=c2;" target="T3_s_sending"></transition>
+      </state>
+      <state id="T3_s_sending"><!--   node-size-and-position x=153.0 y=323.0 w=80.0 h=20.0  -->
+       <transition cond="c2&gt;=task3_trans+t3_sending_start" event="port2=true;port1=true;task3_ready=true;t3_sending_end=c2;" target="T3_end"></transition>
+       <transition cond="c2&lt;task3_trans+t3_sending_start" event="c2=c2+a2;">T2</transition>
+      </state>
+      <state id="T3_exit"><!--   node-size-and-position x=203.0 y=435.0 w=50.0 h=20.0  -->
+       <transition target="Processor2_exit"></transition>
+      </state>
+      <state id="T3_after_entry"><!--   node-size-and-position x=93.0 y=75.0 w=100.0 h=20.0  -->
+       <transition cond="P2_task==3" target="T3_waiting"></transition>
+      </state>
+      <state id="T3_entry"><!--   node-size-and-position x=113.0 y=35.0 w=60.0 h=20.0  -->
+       <transition target="T3_after_entry"></transition>
+      </state>
+     </state>
+     <state id="P2_scheduler" initial="P2_sch_entry"><!--   node-size-and-position x=1012.5 y=218.0 w=426.0 h=293.0  -->
+      <state id="P2_sch_entry"><!--   node-size-and-position x=183.0 y=43.0 w=80.0 h=20.0  -->
+       <transition target="P2_sch_after_entry"></transition>
+      </state>
+      <state id="P2_sch_task2"><!--   node-size-and-position x=183.0 y=113.0 w=80.0 h=20.0  -->
+       <transition cond="task2_ready==true" event="P2_task=3;task3_ready=false;task3_time_ex=false;" target="P2_sch_task3"><!--   edge-path [P2_sch_task3]  x=229.0 y=158.0  --></transition>
+      </state>
+      <state id="P2_sch_task3"><!--   node-size-and-position x=183.0 y=183.0 w=80.0 h=20.0  -->
+       <transition cond="(task3_ready)&amp;&amp;(n2&lt;n)" event="P2_task=2;task2_ready=false;c2=0;task2_time_ex=false;n2=n2+1;" target="P2_sch_task2"><!--   edge-path [P2_sch_task2]  x=209.0 y=158.0  --></transition>
+       <transition cond="(n2&gt;=n)&amp;&amp;(task3_ready)" event="p2_end=true;" target="P2_sch_exit"></transition>
+      </state>
+      <state id="P2_sch_exit"><!--   node-size-and-position x=188.0 y=253.0 w=70.0 h=20.0  -->
+       <transition target="Processor2_exit"><!--   edge-path [Processor2_exit]  pointx=0.0 pointy=0.0 offsetx=0.0 offsety=50.0  --></transition>
+      </state>
+      <state id="P2_sch_after_entry"><!--   node-size-and-position x=178.0 y=70.0 w=100.0 h=20.0  -->
+       <transition event="P2_task=2;task2_ready=false;" target="P2_sch_task2"></transition>
+      </state>
+     </state>
+    </parallel>
+    <state id="Processor2_exit"><!--   node-size-and-position x=699.25 y=799.0 w=100.0 h=20.0  -->
+     <transition target="System_exit"></transition>
+    </state>
+   </state>
+   <state id="System_entry"><!--   node-size-and-position x=1467.25 y=43.0 w=80.0 h=20.0  -->
+    <transition target="Processor_1_entry"></transition>
+    <transition target="Processor_2_entry"></transition>
+   </state>
+   <final id="System_exit"><!--   node-size-and-position x=1472.25 y=1002.0 w=70.0 h=20.0  --></final>
+  </parallel>
+ </state>
+</scxml>

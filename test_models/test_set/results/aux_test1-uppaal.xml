@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC "-//Uppaal Team//DTD Flat System 1.1//EN" "http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd">
+<nta>
+  <declaration>chan init_Main;
+chan init_xor1;
+chan enter_xor1_via_UNNAMED2_in_Main;
+chan enter_Main_via_UNNAMED1_in_top;
+chan exit_xor1;
+int [0,1] exit_UNNAMED3_ready = 0;
+</declaration>
+    <template>
+    <name x="5" y="5">Global_Kickoff</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-217">
+      <name x="-48" y="-202">xor1_vertex</name>
+      <label kind="invariant" x="-48" y="-187">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id1" x="-48" y="-28">
+      <name x="-48" y="-13">end</name>
+      <label kind="invariant" x="-48" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-48" y="-406">
+      <name x="-48" y="-391">Main_vertex</name>
+      <label kind="invariant" x="-48" y="-376">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id2" />
+    
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      <label kind="guard" x="-102" y="-297">true</label>
+      <label kind="synchronisation" x="-102" y="-282">init_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      <label kind="guard" x="-100" y="-108">true</label>
+      <label kind="synchronisation" x="-100" y="-93">init_xor1!</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">Main_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-28">
+      <name x="-48" y="-13">xor1_active_in_Main</name>
+      <label kind="invariant" x="-48" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-48" y="-427">
+      <name x="-48" y="-412">Main_idle</name>
+      <label kind="invariant" x="-48" y="-397">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-176" y="-228">
+      <name x="-176" y="-213">Main_aux_xor1_UNNAMED2</name>
+      <label kind="invariant" x="-176" y="-198">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id1" />
+    
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      <label kind="guard" x="-59" y="-213">true</label>
+      <label kind="synchronisation" x="-59" y="-198">init_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      <label kind="guard" x="-334" y="-108">true</label>
+      <label kind="synchronisation" x="-334" y="-93">enter_xor1_via_UNNAMED2_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id2" />
+      
+      <label kind="guard" x="-329" y="-318">true</label>
+      <label kind="synchronisation" x="-329" y="-303">enter_Main_via_UNNAMED1_in_top?</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">xor1_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-363" y="-244">
+      <name x="-363" y="-229">xor1_idle</name>
+      <label kind="invariant" x="-363" y="-214">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-363" y="-28">
+      <name x="-363" y="-13">xor1_s1_active_in_xor1</name>
+      <label kind="invariant" x="-363" y="2">true</label>
+      
+      
+    </location>
+    
+    <init ref="id0" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      <label kind="guard" x="-176" y="-121">true</label>
+      <label kind="synchronisation" x="-176" y="-106">init_xor1?</label>
+      <label kind="assignment" x="-176" y="-91">exit_UNNAMED3_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      <label kind="guard" x="-567" y="-121">true</label>
+      <label kind="synchronisation" x="-567" y="-106">enter_xor1_via_UNNAMED2_in_Main?</label>
+      <label kind="assignment" x="-567" y="-91">exit_UNNAMED3_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-950" y="-106">exit_xor1?</label>
+      <label kind="assignment" x="-950" y="-91">exit_UNNAMED3_ready := 0</label>
+      
+    </transition>
+  </template>
+
+  <system>Global_Kickoff_proc = Global_Kickoff();
+Main_process_proc = Main_process();
+xor1_process_proc = xor1_process();
+system Global_Kickoff_proc, Main_process_proc, xor1_process_proc;
+</system>
+</nta>

@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC "-//Uppaal Team//DTD Flat System 1.1//EN" "http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd">
+<nta>
+  <declaration>chan init_Main;
+chan init_UNNAMED2;
+chan enter_Main_via_Main_entry_in_top;
+chan enter_Main_via_s3_extra_entry_extra_entry_in_top;
+chan exit_Main;
+chan enter_UNNAMED2_via_UNNAMED1_in_Main;
+chan enter_UNNAMED3_via_s3_extra_entry_in_Main;
+</declaration>
+    <template>
+    <name x="5" y="5">Global_Kickoff</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-214">
+      <name x="-48" y="-199">UNNAMED2_vertex</name>
+      <label kind="invariant" x="-48" y="-184">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id1" x="-48" y="-28">
+      <name x="-48" y="-13">end</name>
+      <label kind="invariant" x="-48" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-48" y="-400">
+      <name x="-48" y="-385">Main_vertex</name>
+      <label kind="invariant" x="-48" y="-370">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id2" />
+    
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-102" y="-277">init_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-138" y="-91">init_UNNAMED2!</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">Main_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-423" y="-586">
+      <name x="-423" y="-571">Main_idle</name>
+      <label kind="invariant" x="-423" y="-556">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-372" y="-28">
+      <name x="-372" y="-13">Main_active</name>
+      <label kind="invariant" x="-372" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-136" y="-400">
+      <name x="-136" y="-385">enter_s3_extra_entry_extra_entry_loc_UNNAMED2</name>
+      <label kind="invariant" x="-136" y="-370">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id3" x="-138" y="-214">
+      <name x="-138" y="-199">enter_s3_extra_entry_extra_entry_loc_UNNAMED3</name>
+      <label kind="invariant" x="-138" y="-184">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id4" x="-709" y="-400">
+      <name x="-709" y="-385">enter_Main_entry_loc_UNNAMED2</name>
+      <label kind="invariant" x="-709" y="-370">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id5" x="-685" y="-214">
+      <name x="-685" y="-199">enter_Main_entry_loc_UNNAMED3</name>
+      <label kind="invariant" x="-685" y="-184">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id0" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-76" y="-277">init_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id4" />
+      
+      
+      <label kind="synchronisation" x="-911" y="-463">enter_Main_via_Main_entry_in_top?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id4" />
+      <target ref="id5" />
+      
+      
+      <label kind="synchronisation" x="-941" y="-277">enter_UNNAMED2_via_UNNAMED1_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id5" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-938" y="-91">enter_UNNAMED3_via_UNNAMED3_entry_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      <label kind="synchronisation" x="-407" y="-463">enter_Main_via_s3_extra_entry_extra_entry_in_top?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-379" y="-277">enter_UNNAMED2_via_UNNAMED1_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-356" y="-91">enter_UNNAMED3_via_UNNAMED3_entry_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-1345" y="-277">exit_Main?</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">UNNAMED2_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-121" y="-397">
+      <name x="-121" y="-382">UNNAMED2_idle</name>
+      <label kind="invariant" x="-121" y="-367">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-121" y="-211">
+      <name x="-121" y="-196">s1_active_in_UNNAMED2</name>
+      <label kind="invariant" x="-121" y="-181">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-121" y="-28">
+      <name x="-121" y="-13">s2_active_in_UNNAMED2</name>
+      <label kind="invariant" x="-121" y="2">true</label>
+      
+      
+    </location>
+    
+    <init ref="id0" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-105" y="-274">init_UNNAMED2?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id2" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id1" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-450" y="-274">enter_UNNAMED2_via_UNNAMED1_in_Main?</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">UNNAMED3_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-211">
+      <name x="-48" y="-196">s3_active_in_UNNAMED3</name>
+      <label kind="invariant" x="-48" y="-181">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-48" y="-397">
+      <name x="-48" y="-382">UNNAMED3_idle</name>
+      <label kind="invariant" x="-48" y="-367">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-48" y="-28">
+      <name x="-48" y="-13">s4_active_in_UNNAMED3</name>
+      <label kind="invariant" x="-48" y="2">true</label>
+      
+      
+    </location>
+    
+    <init ref="id1" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-309" y="-274">enter_UNNAMED3_via_s3_extra_entry_in_Main?</label>
+      
+      
+    </transition>
+  </template>
+
+  <system>Global_Kickoff_proc = Global_Kickoff();
+Main_process_proc = Main_process();
+UNNAMED2_process_proc = UNNAMED2_process();
+UNNAMED3_process_proc = UNNAMED3_process();
+system Global_Kickoff_proc, Main_process_proc, UNNAMED2_process_proc, UNNAMED3_process_proc;
+</system>
+</nta>

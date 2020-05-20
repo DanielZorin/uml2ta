@@ -1,0 +1,4 @@
+<?xml version="1.0" ?><nta><declaration>bool UNNAMED3_flag = false;
+</declaration><template><name>Main</name><location id="s1_active"><name>s1_active</name><label kind="invariant">true</label></location><location id="s2_active"><name>s2_active</name><label kind="invariant">true</label></location><location id="s3_active"><name>s3_active</name><label kind="invariant">true</label></location><init ref="s2_active"/><transition><source ref="s1_active"/><target ref="s2_active"/></transition><transition><source ref="s2_active"/><target ref="s3_active"/></transition><transition><source ref="s3_active"/><target ref="s1_active"/></transition></template><system>Main_proc = Main();
+system Main_proc;
+</system></nta>

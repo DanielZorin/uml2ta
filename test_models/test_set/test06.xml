@@ -1,0 +1,5 @@
+<?xml version="1.0" ?><nta><declaration>bool UNNAMED4_flag = false;
+bool UNNAMED5_flag = false;
+</declaration><template><name>single_process</name><location id="idle"><name>idle</name><label kind="invariant">true</label></location></template><system>single_process_proc = single_process();
+system single_process_proc;
+</system></nta>

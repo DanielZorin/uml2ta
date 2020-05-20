@@ -1,0 +1,7 @@
+<?xml version="1.0" ?><nta><declaration>bool UNNAMED2_exit_flag = false;
+bool UNNAMED1_extra_exit_flag = false;
+bool UNNAMED3_exit_flag = false;
+</declaration><template><name>UNNAMED2</name><location id="idle"><name>idle</name><label kind="invariant">true</label></location><location id="s1_active"><name>s1_active</name><label kind="invariant">true</label></location><location id="s2_active"><name>s2_active</name><label kind="invariant">true</label></location><init ref="s1_active"/><transition><source ref="s1_active"/><target ref="s2_active"/></transition><transition><source ref="s2_active"/><target ref="s1_active"/></transition></template><template><name>UNNAMED3</name><location id="idle"><name>idle</name><label kind="invariant">true</label></location><location id="s3_active"><name>s3_active</name><label kind="invariant">true</label></location><location id="s4_active"><name>s4_active</name><label kind="invariant">true</label></location><init ref="idle"/><transition><source ref="s3_active"/><target ref="s4_active"/></transition><transition><source ref="s4_active"/><target ref="s3_active"/></transition></template><system>UNNAMED2_proc = UNNAMED2();
+UNNAMED3_proc = UNNAMED3();
+system UNNAMED2_proc, UNNAMED3_proc;
+</system></nta>

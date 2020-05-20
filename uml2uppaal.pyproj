@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{a4e39571-6766-4cfa-a45d-285904a3b3d9}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>uml2ta-debug.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>uml2uppaal</Name>
+    <RootNamespace>uml2uppaal</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
+    <InterpreterId>2af0f10d-7135-4994-9156-5d01c9c11b7e</InterpreterId>
+    <InterpreterVersion>2.7</InterpreterVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="antlr3\compat.py" />
+    <Compile Include="antlr3\constants.py" />
+    <Compile Include="antlr3\debug.py" />
+    <Compile Include="antlr3\dfa.py" />
+    <Compile Include="antlr3\dottreegen.py" />
+    <Compile Include="antlr3\exceptions.py" />
+    <Compile Include="antlr3\extras.py" />
+    <Compile Include="antlr3\main.py" />
+    <Compile Include="antlr3\recognizers.py" />
+    <Compile Include="antlr3\streams.py" />
+    <Compile Include="antlr3\tokens.py" />
+    <Compile Include="antlr3\tree.py" />
+    <Compile Include="antlr3\treewizard.py" />
+    <Compile Include="antlr3\__init__.py" />
+    <Compile Include="buildall.py" />
+    <Compile Include="Normalize.py" />
+    <Compile Include="property2uppaal.py" />
+    <Compile Include="pyuppaal\pyuppaal.py" />
+    <Compile Include="pyuppaal\ulp\compiler.py" />
+    <Compile Include="pyuppaal\ulp\expressionParser.py" />
+    <Compile Include="pyuppaal\ulp\lexer.py" />
+    <Compile Include="pyuppaal\ulp\node.py" />
+    <Compile Include="pyuppaal\ulp\parser.py" />
+    <Compile Include="pyuppaal\ulp\__init__.py" />
+    <Compile Include="pyuppaal\__init__.py" />
+    <Compile Include="scxml2ta.py" />
+    <Compile Include="trace2uml.py" />
+    <Compile Include="TranslationAlgorithmV2.py" />
+    <Compile Include="TranslationAlgorithm.py" />
+    <Compile Include="uml2ta-debug.py" />
+    <Compile Include="uml2ta.py" />
+    <Compile Include="UMLStateMachine\errors.py" />
+    <Compile Include="UMLStateMachine\Model.py" />
+    <Compile Include="UMLStateMachine\Parsers\ActionLexer.py" />
+    <Compile Include="UMLStateMachine\Parsers\ActionParser.py" />
+    <Compile Include="UMLStateMachine\Parsers\clear.py" />
+    <Compile Include="UMLStateMachine\Parsers\DeclarationsLexer.py" />
+    <Compile Include="UMLStateMachine\Parsers\DeclarationsParser.py" />
+    <Compile Include="UMLStateMachine\Parsers\GuardLexer.py" />
+    <Compile Include="UMLStateMachine\Parsers\GuardParser.py" />
+    <Compile Include="UMLStateMachine\Parsers\__init__.py" />
+    <Compile Include="UMLStateMachine\State.py" />
+    <Compile Include="UMLStateMachine\StateMachine.py" />
+    <Compile Include="UMLStateMachine\Transition.py" />
+    <Compile Include="UMLStateMachine\xmiparser\interfaces.py" />
+    <Compile Include="UMLStateMachine\xmiparser\utils.py" />
+    <Compile Include="UMLStateMachine\xmiparser\xmi.py" />
+    <Compile Include="UMLStateMachine\xmiparser\xmiparser.py" />
+    <Compile Include="UMLStateMachine\xmiparser\zargoparser.py" />
+    <Compile Include="UMLStateMachine\xmiparser\__init__.py" />
+    <Compile Include="UMLStateMachine\__init__.py" />
+    <Compile Include="uml2tainterface.py" />
+    <Compile Include="UPPAAL\Channel.py" />
+    <Compile Include="UPPAAL\Location.py" />
+    <Compile Include="UPPAAL\Process.py" />
+    <Compile Include="UPPAAL\TimedAutomaton.py" />
+    <Compile Include="UPPAAL\Trace.py" />
+    <Compile Include="UPPAAL\Transition.py" />
+    <Compile Include="UPPAAL\Variable.py" />
+    <Compile Include="UPPAAL\__init__.py" />
+    <Compile Include="xmi2scxml.py" />
+    <Compile Include="__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="antlr3" />
+    <Folder Include="pyuppaal\ulp" />
+    <Folder Include="UMLStateMachine" />
+    <Folder Include="pyuppaal" />
+    <Folder Include="UMLStateMachine\Parsers\grammars" />
+    <Folder Include="UMLStateMachine\xmiparser" />
+    <Folder Include="UMLStateMachine\Parsers" />
+    <Folder Include="UPPAAL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UMLStateMachine\Parsers\grammars\Action.g" />
+    <Content Include="UMLStateMachine\Parsers\grammars\Declarations.g" />
+    <Content Include="UMLStateMachine\Parsers\grammars\Guard.g" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" />
+</Project>

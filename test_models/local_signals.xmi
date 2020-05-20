@@ -1,0 +1,307 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Sun Sep 16 15:19:25 MSD 2012'>
+  <XMI.header>    <XMI.documentation>
+      <XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
+      <XMI.exporterVersion>0.34(6) revised on $Date: 2010-01-11 22:20:14 +0100 (Mon, 11 Jan 2010) $ </XMI.exporterVersion>
+    </XMI.documentation>
+    <XMI.metamodel xmi.name="UML" xmi.version="1.4"/></XMI.header>
+  <XMI.content>
+    <UML:Model xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000961'
+      name = 'untitledModel' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'
+      isAbstract = 'false'>
+      <UML:Namespace.ownedElement>
+        <UML:StateMachine xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000962'
+          name = 'sm' isSpecification = 'false'>
+          <UML:StateMachine.top>
+            <UML:CompositeState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000963'
+              name = 'top' isSpecification = 'false' isConcurrent = 'false'>
+              <UML:CompositeState.subvertex>
+                <UML:CompositeState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000964'
+                  name = 'main' isSpecification = 'false' isConcurrent = 'false'>
+                  <UML:CompositeState.subvertex>
+                    <UML:SubmachineState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000965'
+                      name = 'a' isSpecification = 'false' isConcurrent = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000967'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000968'/>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000970'/>
+                      </UML:StateVertex.incoming>
+                      <UML:State.entry>
+                        <UML:UninterpretedAction xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000976'
+                          name = '' isSpecification = 'false' isAsynchronous = 'false'>
+                          <UML:Action.script>
+                            <UML:ActionExpression xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009CD'
+                              language = '' body = '@PARAM=2;'/>
+                          </UML:Action.script>
+                        </UML:UninterpretedAction>
+                      </UML:State.entry>
+                      <UML:SubmachineState.submachine>
+                        <UML:StateMachine xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099A'/>
+                      </UML:SubmachineState.submachine>
+                    </UML:SubmachineState>
+                    <UML:SubmachineState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000966'
+                      name = 'b' isSpecification = 'false' isConcurrent = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000968'/>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096E'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000967'/>
+                      </UML:StateVertex.incoming>
+                      <UML:State.entry>
+                        <UML:UninterpretedAction xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000986'
+                          name = '' isSpecification = 'false' isAsynchronous = 'false'>
+                          <UML:Action.script>
+                            <UML:ActionExpression xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009CC'
+                              language = '' body = '@PARAM=1;'/>
+                          </UML:Action.script>
+                        </UML:UninterpretedAction>
+                      </UML:State.entry>
+                      <UML:SubmachineState.submachine>
+                        <UML:StateMachine xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099A'/>
+                      </UML:SubmachineState.submachine>
+                    </UML:SubmachineState>
+                    <UML:Pseudostate xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000969'
+                      isSpecification = 'false' kind = 'initial'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096F'/>
+                      </UML:StateVertex.outgoing>
+                    </UML:Pseudostate>
+                    <UML:SimpleState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096A'
+                      name = 'ss1' isSpecification = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000970'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096F'/>
+                      </UML:StateVertex.incoming>
+                    </UML:SimpleState>
+                    <UML:FinalState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096B'
+                      isSpecification = 'false'>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096D'/>
+                      </UML:StateVertex.incoming>
+                    </UML:FinalState>
+                    <UML:SimpleState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096C'
+                      name = 'ss2' isSpecification = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096D'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096E'/>
+                      </UML:StateVertex.incoming>
+                    </UML:SimpleState>
+                  </UML:CompositeState.subvertex>
+                </UML:CompositeState>
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+          <UML:StateMachine.transitions>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000967'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000965'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000966'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000968'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000966'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000965'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096D'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096C'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:FinalState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096B'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096E'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000966'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096C'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096F'
+              name = 'ss1' isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000969'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096A'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000970'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000096A'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000965'/>
+              </UML:Transition.target>
+            </UML:Transition>
+          </UML:StateMachine.transitions>
+        </UML:StateMachine>
+        <UML:StateMachine xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099A'
+          name = 'subm' isSpecification = 'false'>
+          <UML:StateMachine.top>
+            <UML:CompositeState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099B'
+              name = 'top' isSpecification = 'false' isConcurrent = 'false'>
+              <UML:CompositeState.subvertex>
+                <UML:CompositeState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099C'
+                  name = 'inserted' isSpecification = 'false' isConcurrent = 'false'>
+                  <UML:ModelElement.comment>
+                    <UML:Comment xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009BC'/>
+                  </UML:ModelElement.comment>
+                  <UML:CompositeState.subvertex>
+                    <UML:Pseudostate xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099F'
+                      isSpecification = 'false' kind = 'initial'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A3'/>
+                      </UML:StateVertex.outgoing>
+                    </UML:Pseudostate>
+                    <UML:SimpleState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A0'
+                      name = 's1' isSpecification = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A6'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A3'/>
+                      </UML:StateVertex.incoming>
+                    </UML:SimpleState>
+                    <UML:SimpleState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A1'
+                      name = 's3' isSpecification = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A4'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A7'/>
+                      </UML:StateVertex.incoming>
+                    </UML:SimpleState>
+                    <UML:FinalState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A2'
+                      isSpecification = 'false'>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B9'/>
+                      </UML:StateVertex.incoming>
+                    </UML:FinalState>
+                    <UML:SimpleState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A5'
+                      name = 's2' isSpecification = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A7'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A6'/>
+                      </UML:StateVertex.incoming>
+                    </UML:SimpleState>
+                    <UML:SimpleState xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B8'
+                      name = 's4' isSpecification = 'false'>
+                      <UML:StateVertex.outgoing>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B9'/>
+                      </UML:StateVertex.outgoing>
+                      <UML:StateVertex.incoming>
+                        <UML:Transition xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A4'/>
+                      </UML:StateVertex.incoming>
+                    </UML:SimpleState>
+                  </UML:CompositeState.subvertex>
+                </UML:CompositeState>
+              </UML:CompositeState.subvertex>
+            </UML:CompositeState>
+          </UML:StateMachine.top>
+          <UML:StateMachine.transitions>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A3'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:Pseudostate xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099F'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A0'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A4'
+              isSpecification = 'false'>
+              <UML:Transition.trigger>
+                <UML:SignalEvent xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009BB'/>
+              </UML:Transition.trigger>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A1'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B8'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A6'
+              isSpecification = 'false'>
+              <UML:Transition.guard>
+                <UML:Guard xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A8'
+                  name = '' isSpecification = 'false'>
+                  <UML:Guard.expression>
+                    <UML:BooleanExpression xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B2'
+                      language = '' body = 'y == PARAM'/>
+                  </UML:Guard.expression>
+                </UML:Guard>
+              </UML:Transition.guard>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A0'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A5'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A7'
+              isSpecification = 'false'>
+              <UML:Transition.effect>
+                <UML:UninterpretedAction xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B3'
+                  name = '' isSpecification = 'false' isAsynchronous = 'false'>
+                  <UML:Action.script>
+                    <UML:ActionExpression xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B7'
+                      language = '' body = '!!s;'/>
+                  </UML:Action.script>
+                </UML:UninterpretedAction>
+              </UML:Transition.effect>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A5'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A1'/>
+              </UML:Transition.target>
+            </UML:Transition>
+            <UML:Transition xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B9'
+              isSpecification = 'false'>
+              <UML:Transition.source>
+                <UML:SimpleState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009B8'/>
+              </UML:Transition.source>
+              <UML:Transition.target>
+                <UML:FinalState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009A2'/>
+              </UML:Transition.target>
+            </UML:Transition>
+          </UML:StateMachine.transitions>
+          <UML:StateMachine.submachineState>
+            <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000965'/>
+            <UML:SubmachineState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:0000000000000966'/>
+          </UML:StateMachine.submachineState>
+        </UML:StateMachine>
+        <UML:SignalEvent xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009BB'
+          name = 's' isSpecification = 'false'/>
+        <UML:Comment xmi.id = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:00000000000009BC'
+          isSpecification = 'false' body = 'int [0..5] y = 0;&#10;signal s;'>
+          <UML:Comment.annotatedElement>
+            <UML:CompositeState xmi.idref = '-64--88-1-34--7ead2a04:139ce865b4e:-8000:000000000000099C'/>
+          </UML:Comment.annotatedElement>
+        </UML:Comment>
+      </UML:Namespace.ownedElement>
+    </UML:Model>
+  </XMI.content>
+</XMI>

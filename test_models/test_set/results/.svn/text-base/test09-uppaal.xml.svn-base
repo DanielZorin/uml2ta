@@ -1,0 +1,979 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE nta PUBLIC "-//Uppaal Team//DTD Flat System 1.1//EN" "http://www.it.uu.se/research/group/darts/uppaal/flat-1_1.dtd">
+<nta>
+  <declaration>chan init_Main;
+chan init_and1;
+chan init_reg1;
+chan init_reg2;
+chan enter_and1_via_and1_entry_in_Main;
+chan enter_and1_via_and1_s1_extra_entry_extra_entry_in_Main;
+chan enter_and1_via_and1_s2_extra_entry_extra_entry_in_Main;
+chan enter_Main_via_e0_in_top;
+chan exit_reg2;
+chan exit_and1;
+chan exit_reg1;
+chan exit_xor2;
+chan exit_xor1;
+chan enter_xor1_via_e1_in_reg1;
+chan enter_reg1_via_e4_in_and1;
+chan enter_reg1_via_and1_s1_extra_entry_in_and1;
+chan enter_xor2_via_e7_in_reg2;
+chan enter_reg2_via_e5_in_and1;
+chan enter_reg2_via_and1_s2_extra_entry_in_and1;
+int [0,1] exit_e6_ready = 0;
+int [0,1] exit_e3_ready = 0;
+int [0,1] exit_e8_ready = 0;
+int [0,1] exit_e2_ready = 0;
+</declaration>
+    <template>
+    <name x="5" y="5">Global_Kickoff</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-400">
+      <name x="-48" y="-385">reg1_vertex</name>
+      <label kind="invariant" x="-48" y="-370">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id1" x="-48" y="-28">
+      <name x="-48" y="-13">end</name>
+      <label kind="invariant" x="-48" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-48" y="-586">
+      <name x="-48" y="-571">and1_vertex</name>
+      <label kind="invariant" x="-48" y="-556">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id3" x="-48" y="-214">
+      <name x="-48" y="-199">reg2_vertex</name>
+      <label kind="invariant" x="-48" y="-184">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id4" x="-48" y="-772">
+      <name x="-48" y="-757">Main_vertex</name>
+      <label kind="invariant" x="-48" y="-742">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id4" />
+    
+    <transition>
+      <source ref="id4" />
+      <target ref="id2" />
+      
+      
+      <label kind="synchronisation" x="-102" y="-649">init_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-102" y="-463">init_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-100" y="-277">init_reg1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-100" y="-91">init_reg2!</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">Main_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-1578" y="-1411">
+      <name x="-1578" y="-1396">Main_aux_and1_and1_s1_extra_entry_extra_entry</name>
+      <label kind="invariant" x="-1578" y="-1381">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id1" x="-1006" y="-835">
+      <name x="-1006" y="-820">exit_cascade_and1_exit_4_2</name>
+      <label kind="invariant" x="-1006" y="-805">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id2" x="-244" y="-1030">
+      <name x="-244" y="-1015">exit_cascade_and1_exit_4_1</name>
+      <label kind="invariant" x="-244" y="-1000">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id3" x="-981" y="-1411">
+      <name x="-981" y="-1396">Main_aux_and1_and1_s2_extra_entry_extra_entry</name>
+      <label kind="invariant" x="-981" y="-1381">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id4" x="-1578" y="-28">
+      <name x="-1578" y="-13">Main_aux_and1_and1_entry</name>
+      <label kind="invariant" x="-1578" y="2">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id5" x="-1255" y="-223">
+      <name x="-1255" y="-208">exit_cascade_and1_exit_4_5</name>
+      <label kind="invariant" x="-1255" y="-193">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id6" x="-1213" y="-427">
+      <name x="-1213" y="-412">exit_cascade_and1_exit_4_4</name>
+      <label kind="invariant" x="-1213" y="-397">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id7" x="-1578" y="-1606">
+      <name x="-1578" y="-1591">Main_idle</name>
+      <label kind="invariant" x="-1578" y="-1576">true</label>
+      
+      
+    </location>
+
+    <location id="id8" x="-1323" y="-733">
+      <name x="-1323" y="-718">exit_cascade_and1_exit_1_2</name>
+      <label kind="invariant" x="-1323" y="-703">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id9" x="-1396" y="-529">
+      <name x="-1396" y="-514">exit_cascade_and1_exit_1_3</name>
+      <label kind="invariant" x="-1396" y="-499">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id10" x="-1098" y="-937">
+      <name x="-1098" y="-922">exit_cascade_and1_exit_1_1</name>
+      <label kind="invariant" x="-1098" y="-907">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id11" x="-1578" y="-937">
+      <name x="-1578" y="-922">exit_cascade_and1_exit_2_1</name>
+      <label kind="invariant" x="-1578" y="-907">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id12" x="-1578" y="-529">
+      <name x="-1578" y="-514">exit_cascade_and1_exit_2_3</name>
+      <label kind="invariant" x="-1578" y="-499">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id13" x="-1578" y="-733">
+      <name x="-1578" y="-718">exit_cascade_and1_exit_2_2</name>
+      <label kind="invariant" x="-1578" y="-703">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id14" x="-1578" y="-1216">
+      <name x="-1578" y="-1201">and1_active_in_Main</name>
+      <label kind="invariant" x="-1578" y="-1186">true</label>
+      
+      
+    </location>
+
+    <location id="id15" x="-1578" y="-325">
+      <name x="-1578" y="-310">exit_cascade_and1_exit_2_4</name>
+      <label kind="invariant" x="-1578" y="-295">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id16" x="-1096" y="-631">
+      <name x="-1096" y="-616">exit_cascade_and1_exit_4_3</name>
+      <label kind="invariant" x="-1096" y="-601">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id17" x="-2356" y="-1030">
+      <name x="-2356" y="-1015">exit_cascade_and1_exit_3_1</name>
+      <label kind="invariant" x="-2356" y="-1000">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id18" x="-1987" y="-835">
+      <name x="-1987" y="-820">exit_cascade_and1_exit_3_2</name>
+      <label kind="invariant" x="-1987" y="-805">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id19" x="-1827" y="-631">
+      <name x="-1827" y="-616">exit_cascade_and1_exit_3_3</name>
+      <label kind="invariant" x="-1827" y="-601">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id20" x="-1771" y="-325">
+      <name x="-1771" y="-310">exit_cascade_and1_exit_3_4</name>
+      <label kind="invariant" x="-1771" y="-295">true</label>
+      <committed />
+      
+    </location>
+    
+    <init ref="id7" />
+    
+    <transition>
+      <source ref="id7" />
+      <target ref="id14" />
+      
+      
+      <label kind="synchronisation" x="-2311" y="-1381">init_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id4" />
+      <target ref="id14" />
+      
+      
+      <label kind="synchronisation" x="-3333" y="-601">enter_and1_via_and1_entry_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id14" />
+      
+      
+      <label kind="synchronisation" x="-1902" y="-1279">enter_and1_via_and1_s1_extra_entry_extra_entry_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id14" />
+      
+      
+      <label kind="synchronisation" x="-1247" y="-1279">enter_and1_via_and1_s2_extra_entry_extra_entry_in_Main!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id7" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-1727" y="-1483">enter_Main_via_e0_in_top?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id7" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-1422" y="-1483">enter_Main_via_e0_in_top?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id14" />
+      <target ref="id10" />
+      
+      <label kind="guard" x="-1324" y="-1108">exit_e6_ready == 1 &amp;&amp; exit_e3_ready == 1</label>
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id10" />
+      <target ref="id8" />
+      
+      
+      <label kind="synchronisation" x="-1305" y="-805">exit_reg2!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id8" />
+      <target ref="id9" />
+      
+      
+      <label kind="synchronisation" x="-1431" y="-601">exit_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id9" />
+      <target ref="id4" />
+      
+      
+      <label kind="synchronisation" x="-1461" y="-295">exit_reg1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id14" />
+      <target ref="id11" />
+      
+      <label kind="guard" x="-1947" y="-1108">exit_e6_ready == 1 &amp;&amp; exit_e3_ready == 1 &amp;&amp; exit_e8_ready == 1</label>
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id11" />
+      <target ref="id13" />
+      
+      
+      <label kind="synchronisation" x="-1632" y="-805">exit_reg2!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id13" />
+      <target ref="id12" />
+      
+      
+      <label kind="synchronisation" x="-1635" y="-601">exit_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id12" />
+      <target ref="id15" />
+      
+      
+      <label kind="synchronisation" x="-1632" y="-397">exit_reg1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id15" />
+      <target ref="id4" />
+      
+      
+      <label kind="synchronisation" x="-1632" y="-193">exit_xor2!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id14" />
+      <target ref="id17" />
+      
+      <label kind="guard" x="-2730" y="-1108">exit_e6_ready == 1 &amp;&amp; exit_e3_ready == 1 &amp;&amp; exit_e2_ready == 1</label>
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id17" />
+      <target ref="id18" />
+      
+      
+      <label kind="synchronisation" x="-2301" y="-907">exit_reg2!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id18" />
+      <target ref="id19" />
+      
+      
+      <label kind="synchronisation" x="-1992" y="-703">exit_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id19" />
+      <target ref="id20" />
+      
+      
+      <label kind="synchronisation" x="-1869" y="-499">exit_reg1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id20" />
+      <target ref="id4" />
+      
+      
+      <label kind="synchronisation" x="-1791" y="-193">exit_xor1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id14" />
+      <target ref="id2" />
+      
+      <label kind="guard" x="-522" y="-1108">exit_e6_ready == 1 &amp;&amp; exit_e3_ready == 1 &amp;&amp; exit_e2_ready == 1 &amp;&amp; exit_e8_ready == 1</label>
+      
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-794" y="-907">exit_reg2!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id16" />
+      
+      
+      <label kind="synchronisation" x="-1125" y="-703">exit_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id16" />
+      <target ref="id6" />
+      
+      
+      <label kind="synchronisation" x="-1230" y="-499">exit_reg1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id6" />
+      <target ref="id5" />
+      
+      
+      <label kind="synchronisation" x="-1296" y="-295">exit_xor1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id5" />
+      <target ref="id4" />
+      
+      
+      <label kind="synchronisation" x="-1329" y="-91">exit_xor2!</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">and1_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-48" y="-400">
+      <name x="-48" y="-385">enter_and1_entry_loc_reg1</name>
+      <label kind="invariant" x="-48" y="-370">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id1" x="-1167" y="-214">
+      <name x="-1167" y="-199">enter_and1_s1_extra_entry_extra_entry_loc_reg2</name>
+      <label kind="invariant" x="-1167" y="-184">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id2" x="-319" y="-214">
+      <name x="-319" y="-199">enter_and1_entry_loc_reg2</name>
+      <label kind="invariant" x="-319" y="-184">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id3" x="-753" y="-214">
+      <name x="-753" y="-199">enter_and1_s2_extra_entry_extra_entry_loc_reg2</name>
+      <label kind="invariant" x="-753" y="-184">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id4" x="-615" y="-400">
+      <name x="-615" y="-385">enter_and1_s2_extra_entry_extra_entry_loc_reg1</name>
+      <label kind="invariant" x="-615" y="-370">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id5" x="-1167" y="-586">
+      <name x="-1167" y="-571">and1_idle</name>
+      <label kind="invariant" x="-1167" y="-556">true</label>
+      
+      
+    </location>
+
+    <location id="id6" x="-1167" y="-400">
+      <name x="-1167" y="-385">enter_and1_s1_extra_entry_extra_entry_loc_reg1</name>
+      <label kind="invariant" x="-1167" y="-370">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id7" x="-1167" y="-28">
+      <name x="-1167" y="-13">and1_active</name>
+      <label kind="invariant" x="-1167" y="2">true</label>
+      
+      
+    </location>
+    
+    <init ref="id5" />
+    
+    <transition>
+      <source ref="id5" />
+      <target ref="id7" />
+      
+      
+      <label kind="synchronisation" x="-1872" y="-277">init_and1?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id5" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-279" y="-463">enter_and1_via_and1_entry_in_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      <label kind="synchronisation" x="-387" y="-277">enter_reg1_via_e4_in_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id7" />
+      
+      
+      <label kind="synchronisation" x="-620" y="-91">enter_reg2_via_e5_in_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id5" />
+      <target ref="id6" />
+      
+      
+      <label kind="synchronisation" x="-1494" y="-463">enter_and1_via_and1_s1_extra_entry_extra_entry_in_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id6" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-1322" y="-277">enter_reg1_via_e4_in_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id7" />
+      
+      
+      <label kind="synchronisation" x="-1322" y="-91">enter_reg2_via_e5_in_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id5" />
+      <target ref="id4" />
+      
+      
+      <label kind="synchronisation" x="-834" y="-463">enter_and1_via_and1_s2_extra_entry_extra_entry_in_Main?</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id4" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-863" y="-277">enter_reg1_via_e4_in_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id7" />
+      
+      
+      <label kind="synchronisation" x="-1005" y="-91">enter_reg2_via_e5_in_and1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id7" />
+      <target ref="id5" />
+      
+      
+      <label kind="synchronisation" x="-1998" y="-277">exit_and1?</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">reg1_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-439" y="-427">
+      <name x="-439" y="-412">xor1_active_in_reg1</name>
+      <label kind="invariant" x="-439" y="-397">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-439" y="-28">
+      <name x="-439" y="-13">and1_s1_active_in_reg1</name>
+      <label kind="invariant" x="-439" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id2" x="-439" y="-613">
+      <name x="-439" y="-598">reg1_aux_xor1_e1</name>
+      <label kind="invariant" x="-439" y="-583">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id3" x="-439" y="-241">
+      <name x="-439" y="-226">reg1_idle</name>
+      <label kind="invariant" x="-439" y="-211">true</label>
+      
+      
+    </location>
+    
+    <init ref="id3" />
+    
+    <transition>
+      <source ref="id3" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-127" y="-105">init_reg1?</label>
+      <label kind="assignment" x="-127" y="-90">exit_e3_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-592" y="-490">enter_xor1_via_e1_in_reg1!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-423" y="-105">enter_reg1_via_e4_in_and1?</label>
+      <label kind="assignment" x="-423" y="-90">exit_e3_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-855" y="-105">enter_reg1_via_and1_s1_extra_entry_in_and1?</label>
+      <label kind="assignment" x="-855" y="-90">exit_e3_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-1246" y="-105">exit_reg1?</label>
+      <label kind="assignment" x="-1246" y="-90">exit_e3_ready := 0</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-496" y="-304">exit_reg1?</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">reg2_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-439" y="-241">
+      <name x="-439" y="-226">reg2_idle</name>
+      <label kind="invariant" x="-439" y="-211">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-439" y="-613">
+      <name x="-439" y="-598">reg2_aux_xor2_e7</name>
+      <label kind="invariant" x="-439" y="-583">true</label>
+      <committed />
+      
+    </location>
+
+    <location id="id2" x="-439" y="-28">
+      <name x="-439" y="-13">and1_s2_active_in_reg2</name>
+      <label kind="invariant" x="-439" y="2">true</label>
+      
+      
+    </location>
+
+    <location id="id3" x="-439" y="-427">
+      <name x="-439" y="-412">xor2_active_in_reg2</name>
+      <label kind="invariant" x="-439" y="-397">true</label>
+      
+      
+    </location>
+    
+    <init ref="id0" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      <label kind="synchronisation" x="-127" y="-105">init_reg2?</label>
+      <label kind="assignment" x="-127" y="-90">exit_e6_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id3" />
+      
+      
+      <label kind="synchronisation" x="-592" y="-490">enter_xor2_via_e7_in_reg2!</label>
+      
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      <label kind="synchronisation" x="-423" y="-105">enter_reg2_via_e5_in_and1?</label>
+      <label kind="assignment" x="-423" y="-90">exit_e6_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id0" />
+      <target ref="id2" />
+      
+      
+      <label kind="synchronisation" x="-855" y="-105">enter_reg2_via_and1_s2_extra_entry_in_and1?</label>
+      <label kind="assignment" x="-855" y="-90">exit_e6_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id2" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-1246" y="-105">exit_reg2?</label>
+      <label kind="assignment" x="-1246" y="-90">exit_e6_ready := 0</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id3" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-496" y="-304">exit_reg2?</label>
+      
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">xor1_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-189" y="-241">
+      <name x="-189" y="-226">xor1_idle</name>
+      <label kind="invariant" x="-189" y="-211">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-189" y="-28">
+      <name x="-189" y="-13">xor1_s1_active_in_xor1</name>
+      <label kind="invariant" x="-189" y="2">true</label>
+      
+      
+    </location>
+    
+    <init ref="id0" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-174" y="-105">enter_xor1_via_e1_in_reg1?</label>
+      <label kind="assignment" x="-174" y="-90">exit_e2_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-451" y="-105">exit_xor1?</label>
+      <label kind="assignment" x="-451" y="-90">exit_e2_ready := 0</label>
+      
+    </transition>
+  </template>
+  <template>
+    <name x="5" y="5">xor2_process</name>
+    
+    <declaration></declaration>
+    
+    <location id="id0" x="-189" y="-241">
+      <name x="-189" y="-226">xor2_idle</name>
+      <label kind="invariant" x="-189" y="-211">true</label>
+      
+      
+    </location>
+
+    <location id="id1" x="-189" y="-28">
+      <name x="-189" y="-13">xor2_s1_active_in_xor2</name>
+      <label kind="invariant" x="-189" y="2">true</label>
+      
+      
+    </location>
+    
+    <init ref="id0" />
+    
+    <transition>
+      <source ref="id0" />
+      <target ref="id1" />
+      
+      
+      <label kind="synchronisation" x="-174" y="-105">enter_xor2_via_e7_in_reg2?</label>
+      <label kind="assignment" x="-174" y="-90">exit_e8_ready := 1</label>
+      
+    </transition>
+
+    <transition>
+      <source ref="id1" />
+      <target ref="id0" />
+      
+      
+      <label kind="synchronisation" x="-451" y="-105">exit_xor2?</label>
+      <label kind="assignment" x="-451" y="-90">exit_e8_ready := 0</label>
+      
+    </transition>
+  </template>
+
+  <system>Global_Kickoff_proc = Global_Kickoff();
+Main_process_proc = Main_process();
+and1_process_proc = and1_process();
+reg1_process_proc = reg1_process();
+reg2_process_proc = reg2_process();
+xor1_process_proc = xor1_process();
+xor2_process_proc = xor2_process();
+system Global_Kickoff_proc, Main_process_proc, and1_process_proc, reg1_process_proc, reg2_process_proc, xor1_process_proc, xor2_process_proc;
+</system>
+</nta>
